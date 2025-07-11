@@ -14,7 +14,11 @@ const app = express()
 
 
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+  origin: ["http://localhost:5173", "https://imagino-client.vercel.app"], // only allow this origin
+  credentials: true, // if you're using cookies or HTTP auth
+}));
+
 await connectDB()
 
 
